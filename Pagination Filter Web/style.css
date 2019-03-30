@@ -1,0 +1,73 @@
+/*
+****************************
+Tables of Contents:
+- Header: Page Title, Search Tab
+- Main: Lists of Images and Information
+- Footer: Page Number, Dev Information
+
+ */
+
+body {
+    margin: 0 auto;
+    border: 0;
+    max-width: 950px;
+}
+
+/*
+Elements of Header
+**************************/
+
+.header-title{
+
+}
+
+.header-search input{
+
+}
+
+.header-search button{
+
+}
+
+/*
+Elements of Main
+*************************/
+
+img.images {
+    width: 100%;
+    height: 415px;
+}
+
+.lists-image-container{
+    position: relative;
+}
+
+.lists-image {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.lists-infor-destination {
+
+}
+
+.lists-infor-location {
+
+}
+
+.lists-infor-area {
+
+}
+
+.lists-infor-ranking {
+
+}
+
+/*
+Elements of Footers
+***************************/
+.hide {
+    display: none;
+}

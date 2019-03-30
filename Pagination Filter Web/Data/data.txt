@@ -1,0 +1,15 @@
+HoanKiemLake.jpg; Hoan Kiem Lake; Ha Noi, Vietnam; Asia; 15
+HoiTemplesofAngkorAnOldTown.jpg; Hoi An Old Town; Quang Nam, Vietnam; Asia; 13
+YellowStoneNationalPark.jpg; Yellow Stone National Park; USA; North America; 3
+ImperialCity.jpg; Imperial City; Hue, Vietnam; Asia; 23
+BasiliqueNotreDame.jpg; Basilique Notre-Dame; Montreal, Canada; North America; 8
+RedRocksPark.jpg; Red Rocks Park; The Rocky Moutains, USA; North America; 9
+StanleyPark.jpg; Stanley Park; Vancouver, Canada; North America; 12
+KinkakuJi.jpg; Kinkaku-ji; Kyoto, Japan; Asia; 7
+TajMahal.jpg; Taj Mahal; Agra, India; Asia; 1
+ManikarnikaGhat.jpg; Manikarnika Ghat; Varanasi, India; Asia; 11
+MtFuji.jpg; Mt Fuji; Japan; Asia; 21
+TemplesofAngkor.jpg; Temples of Angkor; Cambodia; Asia; 8
+FreycinetNationalPark.jpg; Freycinet National Park; Autralia; Australia & Pacific; 3
+SydneyHarbourBridge.jpg; Sydney Harbour Bridge; Autralia; Australia & Pacific; 7
+QueensTown.jpg; Queens Town; New Zealand; Australia & Pacific; 5
