@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stone Breaking Game</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+
+	<script src="constants.js"defer></script>
+	<script src="MenuBoard.js" defer></script>
+	<script src="Stone.js" defer></script>
+	<script src="welcoming-screen.js" defer></script>
+	<script src="main.js" defer></script>
 </head>
 <body>
+	<div id="welcome" class="">
+		<h3 class="welcome-title">Hi, click to button to start playing</h3>
+		<button id="welcome-play">Play</button>
+	</div>
 
+	<div id="main" class="hide">
+		<div id="menuBoard">
+			<div class="menu-left">
+				<div class="menu-left-score">Score: 0</div>
+				<div class="menu-left-time">Time: 1:30</div>
+			</div>
+			<div class="menu-right">
+				<div class="menu-right-button">
+					<button class="menu-right-play">Play</button>
+					<button class="menu-right-music">Music</button>
+				</div>
+				<div class="menu-right-level">Level: 1</div>
+			</div>
+			<div class="menu-image"></div>
+		</div>
+
+		<div id="animation">
+			<canvas id="canvas"></canvas>
+		</div>
+	</div>
+
+	<div id="gameover" class="hide"></div>
 </body>
 </html>
