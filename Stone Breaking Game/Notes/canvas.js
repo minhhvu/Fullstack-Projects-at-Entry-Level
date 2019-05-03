@@ -36,15 +36,17 @@ function moving() {
 }
 
 //MAIN
-var status = true;
+var status = 1;
 var animation = setInterval(moving, DURATION/NUMBER_OF_INTERVAL);
 window.animation;
 window.addEventListener("keydown",function(){
-	if (status){
-		window.clearInterval(animation); //Trigger Animation
+    console.log(status);
+	if (status == 1){
+		window.clearInterval(animation); //Stop Animation
+        status = 0;
 	}else{
 		animation = setInterval(moving, DURATION/NUMBER_OF_INTERVAL);
-		window.animation; //Turn off Animation
+		window.animation; //Turn on Animation
+        status = 1;
 	};
-	status = !status;
 });
