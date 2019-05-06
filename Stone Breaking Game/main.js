@@ -4,7 +4,7 @@
 let welcomeNode = document.getElementById('welcome-play');
 new WelcomingScreen(welcomeNode);
 
-let menu = new MenuBoard();
+var menu = new MenuBoard();
 menu.display();
 
 //var randomNum = new RandomNumbers(NUM_OF_STONES[menu.level-1]);
@@ -12,20 +12,29 @@ menu.display();
 
 let canvas = document.getElementById("canvas");
 let timerNode = document.querySelector("div.menu-left-time");
-let rotation = new Animation(menu.beginningTime, menu.level, canvas, timerNode);
-rotation.start();
+var animation = new Animation(menu.level, canvas, timerNode);
 
 //var gameover = new GameOver();
 
-//Start the game
-//Set timeout for animation
-window.setTimeout(callback, TIME_PER_TURN);
+//MAIN
+var rotationID = setInterval(animation.rotate, 100);
+startGame();
 
-//Key down listener
-document.addEventListener("keydown",function(){
+function startGame() {
 
-});
+    //Key down listener
+    document.addEventListener("keydown", function () {
+        //animation.clearRotation();
+    });
 
-//Trigger the rotation animation
-callback = this.rotate;
-window.setInterval(callback, 500);
+    //Set the playing time
+    animation.setTime();
+
+    //Set timeout for animation
+    window.setTimeout(function (){
+        window.clearInterval(rotationID);
+        animation.timeOut();}, TIME_PER_TURN);
+
+    //Trigger the rotation animation
+    window.rotationID;
+}

@@ -1,7 +1,6 @@
 class Animation{
-    constructor(beginningTimer, level, canvasNode, timerNode){
+    constructor(level, canvasNode, timerNode){
         this.numOfStone = NUM_OF_STONES[level];
-        this.beginningTimer = beginningTimer;
         this.canvasNode = canvasNode;
         this.timerNode = timerNode;
         this.start = this.start.bind(this);
@@ -27,18 +26,19 @@ class Animation{
     rotate(){
         //Calculate the timer
         let date = new Date();
-        let time = date.getMilliseconds() - beginningTimer;
+        let time = date.getTime() - this.beginningTimer;
 
         let canvasNode0 = this.canvasNode.getContext('2d');
         canvasNode0.clearRect(0,0,this.canvasNode.width, this.canvasNode.height);
 
         //Draw string
         canvasNode0.save();
-        let angle = time % 3000 *Math.PI/3000; //rotate 180 in 3 seconds
-        canvasNode0.translate(Math.floor(CANVAS_WIDTH/2),0);
+        let angle = time % 3000 *Math.PI/3000 - Math.PI /2; //rotate 180 in 3 seconds
+        console.log(angle);
+        canvasNode0.translate(Math.floor((CANVAS_WIDTH-ROPE_WIDTH)/2),0);
         canvasNode0.rotate(angle);
         canvasNode0.fillStyle = STRING_COLOR;
-        canvasNode0.fillRect(0,0, 5, 50);
+        canvasNode0.fillRect(0,0, ROPE_WIDTH, ROPE_HEIGHT);
         canvasNode0.restore();
 
         //Update timer
@@ -50,5 +50,10 @@ class Animation{
         //Clear animations
 
         //Go to game over screen
+        console.log("timeout");
+    }
+
+    setTime(){
+        this.beginningTimer = (new Date).getTime();
     }
 }
