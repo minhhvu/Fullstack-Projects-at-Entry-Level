@@ -1,10 +1,14 @@
-class Animation{
-    constructor(level, canvasNode, timerNode){
-        this.numOfStone = NUM_OF_STONES[level];
+class Animations{
+    constructor(menu, canvasNode){
         this.canvasNode = canvasNode;
-        this.timerNode = timerNode;
+        this.menu = menu;
+
         this.start = this.start.bind(this);
         this.rotate = this.rotate.bind(this);
+        this.countdown = this.countdown.bind(this);
+        this.isReachingStone = this.isReachingStone.bind(this);
+        this.pickStone = this.pickStone.bind(this);
+        this.reachBorder = this.reachBorder.bind(this);
     }
 
     //Start the rotation animation
@@ -33,8 +37,7 @@ class Animation{
 
         //Draw string
         canvasNode0.save();
-        let angle = time % 3000 *Math.PI/3000 - Math.PI /2; //rotate 180 in 3 seconds
-        console.log(angle);
+        let angle = time % ROTATION_PERIOD *Math.PI/ROTATION_PERIOD - Math.PI /2; //rotate 180 in 3 seconds
         canvasNode0.translate(Math.floor((CANVAS_WIDTH-ROPE_WIDTH)/2),0);
         canvasNode0.rotate(angle);
         canvasNode0.fillStyle = STRING_COLOR;
@@ -46,6 +49,15 @@ class Animation{
         //Draw stones
     }
 
+    countdown(){
+        let time = (new Date).getTime() - this.beginningTimer;
+        time = TIME_PER_TURN - time; //the rest amount of seconds to play
+        if (time<0) {
+            time = 0;
+        }
+        this.menu.setTimer(time);
+    }
+
     timeOut(){
         //Clear animations
 
@@ -55,5 +67,21 @@ class Animation{
 
     setTime(){
         this.beginningTimer = (new Date).getTime();
+    }
+
+    isReachingStone(){
+        let numOfStone = NUM_OF_STONES[this.menu.level];
+        for (let i=0; i<numOfStone; i++){
+
+        }
+        return false;
+    }
+
+    pickStone(){
+
+    }
+
+    reachBorder(){
+
     }
 }

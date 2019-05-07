@@ -12,13 +12,27 @@ class MenuBoard {
         let scoreNode = document.querySelector(SCORE_CLASS);
         scoreNode.innerHTML = "Score: " + this.score.toString(10);
         let timeNode = document.querySelector(TIME_CLASS);
-        timeNode.innerHTML = "Time: " + this.timer.toString(10);
+        timeNode.innerHTML = "Time: " + (this.timer/1000).toString(10);
         let levelNode = document.querySelector(LEVEL_CLASS);
         levelNode.innerHTML = "Level:" + this.level.toString(10);
     }
 
-    //return the beginning time
-    getBeginningTime(){
-        return this.beginningTime;
+
+    setScore(score){
+        this.score = score;
+        let scoreNode = document.querySelector(SCORE_CLASS);
+        scoreNode.innerHTML = "Score: " + this.score.toString(10);
+    }
+
+    setTimer(timer){
+        this.timer = Math.round(timer/1000); //convert to seconds
+        let timeNode = document.querySelector(TIME_CLASS);
+        timeNode.innerHTML = "Time: " + (this.timer).toString(10);
+    }
+
+    setLevel(level){
+        this.level = level;
+        let levelNode = document.querySelector(LEVEL_CLASS);
+        levelNode.innerHTML = "Level:" + this.level.toString(10);
     }
 }

@@ -2,29 +2,31 @@
 	Summer 2019, Coded by Minh Hai Vu
 ********************************************************************/
 let welcomeNode = document.getElementById('welcome-play');
-new WelcomingScreen(welcomeNode);
+var welcome = new WelcomingScreen(welcomeNode);
 
 var menu = new MenuBoard();
 menu.display();
 
-//var randomNum = new RandomNumbers(NUM_OF_STONES[menu.level-1]);
-//var stone = new Stone();
-
 let canvas = document.getElementById("canvas");
-let timerNode = document.querySelector("div.menu-left-time");
-var animation = new Animation(menu.level, canvas, timerNode);
+var animation = new Animations(menu, canvas);
 
 //var gameover = new GameOver();
 
 //MAIN
-var rotationID = setInterval(animation.rotate, 100);
-startGame();
+var rotationID = setInterval(animation.rotate, INTERVAL_TIME);
+var timerID = setInterval(animation.countdown, INTERVAL_TIME)
+welcome.addPlayingListener(startGame);
 
 function startGame() {
 
     //Key down listener
     document.addEventListener("keydown", function () {
-        //animation.clearRotation();
+        window.clearInterval(rotationID);
+        if (animation.isReachingStone()){
+            animation.pickStone();
+        } else {
+            animation.reachBorder();
+        };
     });
 
     //Set the playing time
@@ -33,8 +35,10 @@ function startGame() {
     //Set timeout for animation
     window.setTimeout(function (){
         window.clearInterval(rotationID);
+        window.clearInterval(timerID);
         animation.timeOut();}, TIME_PER_TURN);
 
     //Trigger the rotation animation
     window.rotationID;
+    window.timerID;
 }
