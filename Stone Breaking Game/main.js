@@ -14,14 +14,16 @@ var animation = new Animations(menu, canvas);
 
 //MAIN
 var rotationID = setInterval(animation.rotate, INTERVAL_TIME);
-var timerID = setInterval(animation.countdown, INTERVAL_TIME)
+var timerID = setInterval(animation.countdown, INTERVAL_TIME);
 welcome.addPlayingListener(startGame);
 
 function startGame() {
 
     //Key down listener
-    document.addEventListener("keydown", function () {
+    document.addEventListener("keydown", function f() {
         window.clearInterval(rotationID);
+        this.removeEventListener("keydown",f); //Block the event listener for a while
+        animation.setKeyPressedTime();
         if (animation.isReachingStone()){
             animation.pickStone();
         } else {
@@ -30,7 +32,7 @@ function startGame() {
     });
 
     //Set the playing time
-    animation.setTime();
+    animation.setBeginningTime();
 
     //Set timeout for animation
     window.setTimeout(function (){

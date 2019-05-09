@@ -38,15 +38,24 @@ class Animations{
         //Draw string
         canvasNode0.save();
         let angle = time % ROTATION_PERIOD *Math.PI/ROTATION_PERIOD - Math.PI /2; //rotate 180 in 3 seconds
+        console.log(angle);
         canvasNode0.translate(Math.floor((CANVAS_WIDTH-ROPE_WIDTH)/2),0);
         canvasNode0.rotate(angle);
         canvasNode0.fillStyle = STRING_COLOR;
         canvasNode0.fillRect(0,0, ROPE_WIDTH, ROPE_HEIGHT);
         canvasNode0.restore();
 
-        //Update timer
-
         //Draw stones
+        canvasNode0.save();
+        canvasNode0.translate(0,0);
+        canvasNode0.fillStyle = "#ffffff";
+        let numOfStone = NUM_OF_STONES[this.menu.level -1];
+        for (let i=0; i<numOfStone; i++){
+            let array = LEVEL_1_STONE_POSITIONS[i];
+            let size = STONE_SIZE[array[2]];
+            canvasNode0.fillRect(array[0], array[1], size[0], size[1]);
+        }
+        canvasNode0.restore();
     }
 
     countdown(){
@@ -65,16 +74,29 @@ class Animations{
         console.log("timeout");
     }
 
-    setTime(){
+    setBeginningTime(){
         this.beginningTimer = (new Date).getTime();
     }
 
     isReachingStone(){
-        let numOfStone = NUM_OF_STONES[this.menu.level];
+        let numOfStone = NUM_OF_STONES[this.menu.level-1];
+        let angle = (this.pressingTime - this.beginningTimer) % ROTATION_PERIOD *Math.PI/ROTATION_PERIOD - Math.PI /2;;
         for (let i=0; i<numOfStone; i++){
-
+            let array = LEVEL_1_STONE_POSITIONS[i];
+            console.log(i,array);
+            let size = STONE_SIZE[array[2]];
+            let xOrigin = Math.floor((CANVAS_WIDTH-ROPE_WIDTH)/2);
+            if (Stone.isReached(array[0],array[1],size[0],size[1],angle,xOrigin)){
+                console.log("OYESSSSSSSS");
+                return true;
+            };
         }
+        console.log("NO");
         return false;
+    }
+
+    setKeyPressedTime(){
+        this.pressingTime = (new Date).getTime();
     }
 
     pickStone(){

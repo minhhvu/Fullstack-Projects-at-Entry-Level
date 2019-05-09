@@ -11,8 +11,8 @@ const CANVAS_CONTENT_WIDTH = 700;
 const CANVAS_CONTENT_HEIGHT = 400;
 
 //Animation Size
-const ROPE_WIDTH = 8;
-const ROPE_HEIGHT = 20;
+const ROPE_WIDTH = 3;
+const ROPE_HEIGHT = 40;
 const ROTATION_PERIOD = 3000;
 
 //Color codes
@@ -27,7 +27,8 @@ const MUSIC_BTN = "button.menu-right-music";
 
 
 //Stone Positions
-const STONE_POSITIONS = [[], [], []]
+const LEVEL_1_STONE_POSITIONS = [[35,75,0], [75,100,1], [115,125,1], [150,75,2], [185,100,1], [260,100,2]];
+const STONE_SIZE = [[30,20], [20,15], [15,10]];
 
 const NUM_OF_LEVELS = 3;
 const NUM_OF_STONES = [6, 7, 8];
