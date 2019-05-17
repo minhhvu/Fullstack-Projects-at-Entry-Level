@@ -11,7 +11,6 @@ class Stone{
             var smallerAngle =Math.atan(y/(x+w-xOrigin));
         }
 
-        console.log(angle+Math.PI/2,smallerAngle, biggerAngle, x,y,w,h,xOrigin);
 
         if (angle+Math.PI/2>=smallerAngle && angle+Math.PI/2<=biggerAngle){
             return true;

@@ -17,6 +17,7 @@ const ROTATION_PERIOD = 3000;
 
 //Color codes
 const STRING_COLOR = "#00FF40";
+const ARROW_COLOR = "#5312ac";
 
 //HTML Element Id
 const SCORE_CLASS = "div.menu-left-score";
@@ -32,7 +33,7 @@ const STONE_SIZE = [[30,20], [20,15], [15,10]];
 
 const NUM_OF_LEVELS = 3;
 const NUM_OF_STONES = [6, 7, 8];
-const TIME_PER_TURN = 9000; //90 seconds per game
+const TIME_PER_TURN = 29000; //90 seconds per game
 const INTERVAL_TIME = 100;
 
 
